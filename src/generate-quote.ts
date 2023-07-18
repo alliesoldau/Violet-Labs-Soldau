@@ -16,5 +16,4 @@ let randomNumber = randomId(min, max)
 
 fetch(`${url}/${randomNumber}`)
     .then(result => result.json())
-    //the posted contents to the website in json format is displayed as the output on the screen
     .then(quote=>console.log(quote.quote, `- ${quote.character}`))
