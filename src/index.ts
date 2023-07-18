@@ -5,13 +5,17 @@ var data = require('./data/office_quotes.json')
 
 // This is where I fetch from my server
 
-fetch('http://localhost:3000/quotes')
-.then(data => {
-    return data.json()
-})
-.then(quotes => {
-    // console.log(quote)
-    return quotes
-})
+const url = 'http://localhost:3000/quotes'
+
+for (const quote of data) {
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(quote),
+        headers: {'Content-Type': 'application/json'}
+     })
+        .then(result => result.json())
+        //the posted contents to the website in json format is displayed as the output on the screen
+        .then(jsonformat=>console.log(jsonformat));
+    }
 
 

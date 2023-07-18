@@ -26,7 +26,8 @@ export class QuotesService {
     return `This action updates a #${id} quote`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} quote`;
+  async remove(id: number) {
+    const quote = await this.findOne(id);
+    return this.quotesRepository.remove(quote);
   }
 }
