@@ -45,6 +45,7 @@ We expect this to take you 2-4 hours to complete. This isn’t a hard limit- it 
 - (TypeScript Tutorial for Beginners)[https://www.youtube.com/watch?v=d56mG7DezGs&ab_channel=ProgrammingwithMosh]
 - (Loading JSON Data into TypeScript)[https://stackoverflow.com/questions/49481934/fetching-local-json]
 - (nest-api-example)[https://github.com/Emethium/nest-api-example]
+- (How to convert a JSON file to an SQLite database)[https://stackoverflow.com/questions/46407770/how-to-convert-a-json-file-to-an-sqlite-database]
 
 ## Installation
 
