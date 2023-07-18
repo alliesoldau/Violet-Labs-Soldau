@@ -11,11 +11,10 @@ for (const quote of data) {
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(quote),
-        headers: {'Content-Type': 'application/json'}
-     })
+        headers: {'Content-Type': 'application/json'},
+        })
         .then(result => result.json())
         //the posted contents to the website in json format is displayed as the output on the screen
-        .then(data => console.log(data))
         .catch(error => console.error(error))
     }
 

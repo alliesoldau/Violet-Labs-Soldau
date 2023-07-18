@@ -18,16 +18,16 @@ export class QuotesService {
     return this.quotesRepository.find();
   }
 
-  findOne(id: number) {
-    return this.quotesRepository.findOneBy({ id });
+  findOne(quote_id: number) {
+    return this.quotesRepository.findOneBy({ quote_id });
   }
 
   update(id: number, updateQuoteDto: UpdateQuoteDto) {
     return `This action updates a #${id} quote`;
   }
 
-  async remove(id: number) {
-    const quote = await this.findOne(id);
+  async remove(quote_id: number) {
+    const quote = await this.findOne(quote_id);
     return this.quotesRepository.remove(quote);
   }
 }

@@ -1,5 +1,13 @@
-npm run migration:generate --db/migrations/NewMigration     
+delete db.sqlite and migrations folder
+npm run build
+npm run start:dev
+npm run migration:generate -- db/migrations/NewMigration     
 npm run migration:run
+sqlite3 db.sqlite
+INSERT INTO quotes SELECT json_extract(value, '$.quote_id'), json_extract(value, '$.quote'), json_extract(value, '$.character') FROM json_each(readfile('./src/data/office_quotes.json'));
+
+sqlite3 db.sqlite
+INSERT INTO quote SELECT json_extract(value, '$.quote_id'), json_extract(value, '$.quote'), json_extract(value, '$.cha FROM json_each(readfile('office_quotes.json'));
 
 # Random Quote Generator
 
