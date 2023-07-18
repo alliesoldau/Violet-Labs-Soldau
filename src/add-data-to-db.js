@@ -14,5 +14,5 @@ for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
     })
         .then(function (result) { return result.json(); })
         //the posted contents to the website in json format is displayed as the output on the screen
-        .then(function (jsonformat) { return console.log(jsonformat); });
+        .then(function (data) { return console.log(data); })["catch"](function (error) { return console.error(error); });
 }

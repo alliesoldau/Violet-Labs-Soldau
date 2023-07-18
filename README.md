@@ -1,3 +1,6 @@
+npm run migration:generate --db/migrations/NewMigration     
+npm run migration:run
+
 # Random Quote Generator
 
 ## Introduction
@@ -25,6 +28,14 @@ Feel free to consult any NestJS or TypeScript documentation as necessary. For an
 ## Time Estimate
 
 We expect this to take you 2-4 hours to complete. This isn’t a hard limit- it is just for you to plan your time!
+
+### Resources I referenced:
+- (PrommaningKnowledge's NestJS Tutorial for Beginners)[https://www.youtube.com/watch?v=oU5Di3be-Sk&ab_channel=ProgrammingKnowledge]
+- (TypeORM Migrations)[https://www.youtube.com/watch?v=5G81_VIjaO8&ab_channel=MariusEspejo]
+** 23ish min for migrations stuff
+- (TypeScript Tutorial for Beginners)[https://www.youtube.com/watch?v=d56mG7DezGs&ab_channel=ProgrammingwithMosh]
+- (Loading JSON Data into TypeScript)[https://stackoverflow.com/questions/49481934/fetching-local-json]
+- (nest-api-example)[https://github.com/Emethium/nest-api-example]
 
 ## Installation
 

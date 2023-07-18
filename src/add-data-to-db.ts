@@ -15,7 +15,8 @@ for (const quote of data) {
      })
         .then(result => result.json())
         //the posted contents to the website in json format is displayed as the output on the screen
-        .then(jsonformat=>console.log(jsonformat));
+        .then(data => console.log(data))
+        .catch(error => console.error(error))
     }
 
 
