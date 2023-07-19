@@ -10,31 +10,53 @@ const min: number = 0
 let max: number = 0
 
 // fetch the length of the db to determine what the max (aka length of db) is
-fetch(`${url}`)
-    .then((response) => response.json())
-    .then((json) => {
-        max = json.length - 1
-        // function to generate a random index number
-        const randomId = (min: number, max: number) =>
-        Math.floor(Math.random() * (max - min + 1)) + min
+function grabMeAQuote() {
+    fetch(`${url}`)
+        .then((response) => response.json())
+        .then((json) => {
+            max = json.length - 1
+            // function to generate a random index number
+            const randomId = (min: number, max: number) =>
+            Math.floor(Math.random() * (max - min + 1)) + min
 
-        // call function to generate a random number and assign it to variable
-        let randomNumber = randomId(min, max)
-        // perform the fetch to get the random quote, and console log it out to be viewed in the terminal
-        fetch(`${url}/${randomNumber}`)
-        .then((result: { json: () => any; }) => result.json())
-        .then((quote: { quote_id: any; quote: any; character: any; }) => {
-            const quoteObject = {
-                quote_id: quote.quote_id,
-                quote: quote.quote,
-                character: quote.character,
-            };
-            console.log(`Here's an office quote for you:`)
-            console.log(`${quoteObject.quote}' -- ${quoteObject.character}`)
-            console.log('\n')
-            deleteObject(quoteObject);
+            // call function to generate a random number and assign it to variable
+            let randomNumber = randomId(min, max)
+            // perform the fetch to get the random quote, and console log it out to be viewed in the terminal
+            fetch(`${url}/${randomNumber}`)
+            .then((result: { json: () => any; }) => result.json())
+            .then((quote: { quote_id: any; quote: any; character: any; }) => {
+                const quoteObject = {
+                    quote_id: quote.quote_id,
+                    quote: quote.quote,
+                    character: quote.character,
+                };
+                console.log(`Here's an office quote for you: \n`)
+                console.log(`${quoteObject.quote}' -- ${quoteObject.character}`)
+                console.log('\n')
+                deleteObject(quoteObject);
+            })
         })
+}
+
+grabMeAQuote()
+
+function anotherQuote() {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    // prompt the user to save the object
+    rl.question('\nYou want another quote? (Y/n): ', (answer) => {
+    // close the readline interface
+        rl.close();
+        // check the user's response
+        if (answer.trim().toLowerCase() === 'y') {
+            grabMeAQuote()
+        } else {
+            console.log('\nOk no more quotes for you.')
+        }
     })
+}
 
 function deleteObject(obj: any): void {
     // create a readline interface
@@ -61,6 +83,7 @@ function deleteObject(obj: any): void {
             .then((response) => {
                 if (response.ok) {
                     console.log(`Alighty it's been deleted.`);
+                    anotherQuote()
                 } else {
                     console.error('Failed to delete resource:', response.status, response.statusText);
                 }
@@ -70,6 +93,6 @@ function deleteObject(obj: any): void {
             });  
         } else {
             console.log('Mkay');
-        }
-    });
-    }
+            anotherQuote()
+        }}
+    )}
