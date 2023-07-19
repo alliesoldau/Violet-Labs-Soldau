@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Randon Quote Generator</title>
+</head>
+<body>
+    <h1>Random Office Quote Generator</h1>
+
+    <!-- The button to trigger the fetch request -->
+    <button id="clickButton">Fetch Quote</button>
+
+    <!-- The container to display the fetched data -->
+    <div id="resultContainer">
+        <p id="quote"></p>
+        <p id="character"></p>
+    </div>
+
+    <script>
+
+        // create a variable for the localhost to simplify the fetch code
+        const url = 'http://localhost:3000/quotes'
+        // min is 0 because index starts at 0
+        const min = 0
+        let max = 0
+
+        // get the current last index of the data to use as our max
+        fetch(`${url}`)
+            .then((response) => response.json())
+            .then((json) => {
+                max = json.length - 1
+            })
+
+        function fetchQuote() {
+
+            // function to generate a random index number
+            const randomId = (min, max) =>
+                Math.floor(Math.random() * (max - min + 1)) + min
+
+            // call function to generate a random number and assign it to variable
+            let randomNumber = randomId(min, max)
+            
+            // function to fetch data and display it on the page
+            fetch(`${url}/${randomNumber}`)
+                .then(response => response.json())
+                .then(data => {
+                    // pocess the data received from the backend
+                    const quote = document.getElementById('quote');
+                    const character = document.getElementById('character')
+                    quote.innerText = JSON.stringify(data.quote);
+                    character.innerText = ` -- ${data.character}`;
+                })
+                .catch(error => console.error(error));
+            }
+
+        // add event listener to the button to trigger the fetch
+        const clickButton = document.getElementById('clickButton');
+        clickButton.addEventListener('click', fetchQuote);
+    </script>
+</body>
+</html>
