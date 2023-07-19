@@ -5,8 +5,7 @@ npm run build
 npm run start:dev
 npm run migration:generate -- db/migrations/NewMigration     
 npm run migration:run
-<!-- sqlite3 db.sqlite
-INSERT INTO quote SELECT json_extract(value, '$.quote_id'), json_extract(value, '$.quote'), json_extract(value, '$.character') FROM json_each(readfile('./src/data/office_quotes.json')); -->
+
 NOTE: YOU MUST RUN THESE COMMANDS:
     tsc populate-data.ts
     node populate-data.js
@@ -14,7 +13,8 @@ NOTE: YOU MUST RUN THESE COMMANDS:
     node generate-quote.js
 FROM WITHIN THE SRC FOLDER, OTHERWISE IT ERRORS OUT
 
-
+rightclick on frontend.html to view a front end version of this
+- note the front end was written in HTML, JS, and CSS, which seems to be a bit outside the confines of the code, but it seemed fun to have a front end option
 
 # Random Quote Generator
 
