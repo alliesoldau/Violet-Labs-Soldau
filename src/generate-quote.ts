@@ -30,9 +30,8 @@ function grabMeAQuote() {
                     quote: quote.quote,
                     character: quote.character,
                 };
-                console.log(`Here's an office quote for you: \n`)
+                console.log(`Here's an office quote for you:`)
                 console.log(`${quoteObject.quote}' -- ${quoteObject.character}`)
-                console.log('\n')
                 deleteObject(quoteObject);
             })
         })
@@ -46,14 +45,14 @@ function anotherQuote() {
         output: process.stdout,
     });
     // prompt the user to save the object
-    rl.question('\nYou want another quote? (Y/n): ', (answer) => {
+    rl.question('You want another quote? (Y/n): ', (answer) => {
     // close the readline interface
         rl.close();
         // check the user's response
         if (answer.trim().toLowerCase() === 'y') {
             grabMeAQuote()
         } else {
-            console.log('\nOk no more quotes for you.')
+            console.log('Ok no more quotes for you.')
         }
     })
 }

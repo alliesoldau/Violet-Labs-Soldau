@@ -30,9 +30,8 @@ function grabMeAQuote() {
                 quote: quote.quote,
                 character: quote.character
             };
-            console.log("Here's an office quote for you: \n");
+            console.log("Here's an office quote for you:");
             console.log("".concat(quoteObject.quote, "' -- ").concat(quoteObject.character));
-            console.log('\n');
             deleteObject(quoteObject);
         });
     });
@@ -44,7 +43,7 @@ function anotherQuote() {
         output: process.stdout
     });
     // prompt the user to save the object
-    rl.question('\nYou want another quote? (Y/n): ', function (answer) {
+    rl.question('You want another quote? (Y/n): ', function (answer) {
         // close the readline interface
         rl.close();
         // check the user's response

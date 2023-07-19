@@ -1,10 +1,11 @@
 delete db.sqlite and migrations folder
 npm run build
-npm run start:dev
 npm run migration:generate -- db/migrations/NewMigration     
 npm run migration:run
+npm run start
 
 NOTE: YOU MUST RUN THESE COMMANDS:
+    cd src
     tsc populate-data.ts
     node populate-data.js
     tsc generate-quote.ts
