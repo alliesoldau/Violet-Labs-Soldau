@@ -1,3 +1,8 @@
+NOTE: YOU MUST RUN THESE COMMANDS:
+    tsc src/generate-quote.ts
+    node src/generate-quote.js
+FROM WITHIN THE SRC FOLDER, OTHERWISE IT ERRORS OUT
+
 delete db.sqlite and migrations folder
 npm run build
 npm run start:dev
@@ -5,8 +10,7 @@ npm run migration:generate -- db/migrations/NewMigration
 npm run migration:run
 sqlite3 db.sqlite
 INSERT INTO quote SELECT json_extract(value, '$.quote_id'), json_extract(value, '$.quote'), json_extract(value, '$.character') FROM json_each(readfile('./src/data/office_quotes.json'));
-tsc src/generate-quote.ts
-node src/generate-quote.js
+
 
 
 
