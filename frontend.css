@@ -47,6 +47,13 @@ button {
     margin-bottom: 1em;
 }
 
+#deleteButton {
+    width: 40vw;
+    margin: auto;
+    margin-top: 2em;
+    display: none;
+}
+
 button:hover {
     background-color: var(--suitJacketBlue);
     box-shadow: 5px 5px var(--cubicalGrey);

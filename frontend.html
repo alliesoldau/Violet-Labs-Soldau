@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Randon Quote Generator</title>
+    <title>Random Quote Generator</title>
     <link rel="stylesheet" href="./frontend.css">
 </head>
 <body>
@@ -8,18 +8,16 @@
         <div class='header'>
             <h1>Random Office Quote Generator</h1>
             <div class='button'>
-                <!-- The button to trigger the fetch request -->
                 <button id="clickButton">Fetch Me a Quote</button>
             </div>
         </div>
-        <!-- The container to display the fetched data -->
         <div class="resultContainer">
             <p id="quote"></p>
             <p id="character"></p>
         </div>
+        <button id="deleteButton">I don't like this quote. Plz delete it from the database.</button>
     </div>
     <script>
-
         // create a variable for the localhost to simplify the fetch code
         const url = 'http://localhost:3000/quotes'
         // min is 0 because index starts at 0
@@ -51,13 +49,55 @@
                     const character = document.getElementById('character')
                     quote.innerText = JSON.stringify(data.quote);
                     character.innerText = ` ⸻ ${data.character}`;
+                    const deleteButton = document.getElementById('deleteButton');
+                    deleteButton.class = `${data.quote_id}`
+                    hideButton(character.innerText)
                 })
                 .catch(error => console.error(error));
             }
 
+        function deleteQuote() {
+            fetch(`${url}/${deleteButton.class}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+                'Content-Type': 'application/json',
+            },
+            })
+            .then((response) => {
+                if (response.ok) {
+                    console.log(`Alighty it's been deleted.`);
+                    const quote = document.getElementById('quote');
+                    const character = document.getElementById('character')
+                    quote.innerText = '';
+                    character.innerText = '';
+                    hideButton(character.innerText)
+                } else {
+                    console.error('Failed to delete resource:', response.status, response.statusText);
+                }
+            })
+            .catch((error) => {
+                console.error('Error deleting resource:', error);
+            });  
+        }
+
         // add event listener to the button to trigger the fetch
         const clickButton = document.getElementById('clickButton');
         clickButton.addEventListener('click', fetchQuote);
+
+        // add event listener to the button to trigger the fetch
+        const deleteButton = document.getElementById('deleteButton');
+        deleteButton.addEventListener('click', deleteQuote);
+        
+        // hide the delete button if there is no quote there
+        function hideButton(text) {
+            if (text === '') {
+            // if the quote is empty, hide the button
+                deleteButton.style.display = 'none';
+            } else {
+                deleteButton.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
