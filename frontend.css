@@ -1,0 +1,73 @@
+:root {
+    --buttonUpBlue: #95ACCE;
+    --suitJacketBlue: #2F427F;
+    --starkOfficeWallWhite: #F1F0F4;
+    --officeSweaterBrown: #CA9D6E;
+    --pencilLead: #535358;
+    --cubicalGrey: #C3C3C5;
+}
+
+body {
+    background-color: var(--starkOfficeWallWhite);
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+h1 {
+    color: var(--suitJacketBlue);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button {
+    background-color: var(--buttonUpBlue);
+    color: var(--starkOfficeWallWhite);
+    border: none;
+    height: 2em;
+    border-radius: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-shadow: 5px 5px var(--cubicalGrey);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.button {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+button:hover {
+    background-color: var(--suitJacketBlue);
+    box-shadow: 5px 5px var(--cubicalGrey);
+}
+
+.resultContainer {
+    width: 50vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    padding: 3em;
+    margin-top: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--officeSweaterBrown);
+    border-radius: 3em;
+}
+
+p#quote {
+    color: black;
+}
+
+p#character {
+    color: var(--starkOfficeWallWhite);
+    text-align: right;
+}

@@ -1,19 +1,23 @@
 <html>
 <head>
     <title>Randon Quote Generator</title>
+    <link rel="stylesheet" href="./frontend.css">
 </head>
 <body>
-    <h1>Random Office Quote Generator</h1>
-
-    <!-- The button to trigger the fetch request -->
-    <button id="clickButton">Fetch Quote</button>
-
-    <!-- The container to display the fetched data -->
-    <div id="resultContainer">
-        <p id="quote"></p>
-        <p id="character"></p>
+    <div class='app-container'>
+        <div class='header'>
+            <h1>Random Office Quote Generator</h1>
+            <div class='button'>
+                <!-- The button to trigger the fetch request -->
+                <button id="clickButton">Fetch Me a Quote</button>
+            </div>
+        </div>
+        <!-- The container to display the fetched data -->
+        <div class="resultContainer">
+            <p id="quote"></p>
+            <p id="character"></p>
+        </div>
     </div>
-
     <script>
 
         // create a variable for the localhost to simplify the fetch code
@@ -46,7 +50,7 @@
                     const quote = document.getElementById('quote');
                     const character = document.getElementById('character')
                     quote.innerText = JSON.stringify(data.quote);
-                    character.innerText = ` -- ${data.character}`;
+                    character.innerText = ` ⸻ ${data.character}`;
                 })
                 .catch(error => console.error(error));
             }
