@@ -1,4 +1,4 @@
-// allow for fetching
+// import fetch to allow for fetching
 import fetch from 'node-fetch';
 
 // need to grab the json data here to get the full length of the data to put in as the max for our random number picker

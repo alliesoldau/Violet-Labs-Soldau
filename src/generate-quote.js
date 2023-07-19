@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-// allow for fetching
+// import fetch to allow for fetching
 var node_fetch_1 = require("node-fetch");
 // need to grab the json data here to get the full length of the data to put in as the max for our random number picker
 // we could also do this with a fetch to be positive we know how many quotes are in that table, but this sufficient for now

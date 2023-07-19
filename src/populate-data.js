@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var fs = require("fs");
 var sqlite3 = require("sqlite3");
+// this reads the data from the json and returns an array of the quotes
 function readJsonFile(filePath) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -60,6 +61,8 @@ function readJsonFile(filePath) {
         });
     });
 }
+// this inserts the data into my pre-existing database. 
+// for dev purposes, I have it INSERT or REPLACE any duplicates so that I more easily run trials on it
 function insertDataIntoDatabase(data, db) {
     return __awaiter(this, void 0, void 0, function () {
         var insertQuery, _i, data_1, item;
@@ -77,7 +80,8 @@ function insertDataIntoDatabase(data, db) {
         });
     });
 }
-function main() {
+// this reads the quotes from the JSON and inserts them into the pre-existing database by calling insertDataIntoDatabase
+function readQuotes() {
     return __awaiter(this, void 0, void 0, function () {
         var jsonData, db, error_1;
         return __generator(this, function (_a) {
@@ -88,23 +92,25 @@ function main() {
                 case 1:
                     jsonData = _a.sent();
                     db = new sqlite3.Database('../db.sqlite');
+                    // call upon the function to insert data into database
                     insertDataIntoDatabase(jsonData, db);
+                    // close the database
                     db.close(function (err) {
                         if (err) {
-                            console.error('Error closing the database:', err);
+                            console.error('Uh oh, there was an error closing the database:', err);
                         }
                         else {
-                            console.log('Data insertion completed.');
+                            console.log('All your office quotes have been inserted into the database. Wahoo!');
                         }
                     });
                     return [3 /*break*/, 3];
                 case 2:
                     error_1 = _a.sent();
-                    console.error('Error occurred:', error_1);
+                    console.error("Yikes, there's an error:", error_1);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
         });
     });
 }
-main();
+readQuotes();
