@@ -52,6 +52,7 @@ We expect this to take you 2-4 hours to complete. This isn’t a hard limit- it 
 - (Loading JSON Data into TypeScript)[https://stackoverflow.com/questions/49481934/fetching-local-json]
 - (nest-api-example)[https://github.com/Emethium/nest-api-example]
 - (How to convert a JSON file to an SQLite database)[https://stackoverflow.com/questions/46407770/how-to-convert-a-json-file-to-an-sqlite-database]
+- (NestJS Testing Tutorial | Unit and Integration Testing)[https://www.youtube.com/watch?v=dXOfOgFFKuY&ab_channel=MariusEspejo]
 
 ## Installation
 

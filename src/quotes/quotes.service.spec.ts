@@ -4,8 +4,6 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { Quote } from './entities/quote.entity';
 import { Repository } from 'typeorm';
 
-// TO DO: finish writting test 
-
 describe('QuotesService', () => {
   let service: QuotesService;
 
