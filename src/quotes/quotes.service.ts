@@ -13,7 +13,7 @@ export class QuotesService {
   }
 
   findOne(quote_id: number) {
-    return this.quotesRepository.findOneBy({ quote_id });
+    return this.quotesRepository.findOne({ where: { quote_id } });
   }
 
   async remove(quote_id: number) {
