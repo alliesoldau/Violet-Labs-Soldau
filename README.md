@@ -1,5 +1,3 @@
-
-
 delete db.sqlite and migrations folder
 npm run build
 npm run start:dev

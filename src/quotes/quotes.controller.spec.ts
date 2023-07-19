@@ -2,8 +2,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { QuotesController } from './quotes.controller';
 import { QuotesService } from './quotes.service';
 
-// TO DO: finish writting test 
-
 describe('QuotesController', () => {
   let controller: QuotesController;
   let quotesService: QuotesService;
